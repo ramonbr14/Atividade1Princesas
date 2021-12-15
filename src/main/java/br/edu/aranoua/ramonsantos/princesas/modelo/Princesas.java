@@ -1,10 +1,21 @@
 package br.edu.aranoua.ramonsantos.princesas.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Princesas {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(nullable=false, unique=false)
 	private String nome;
+	@Column(nullable=false, unique=false)
 	private String reino;
+	@Column(nullable=false, unique=false)
 	private int idade;
 	
 	public Princesas() {
