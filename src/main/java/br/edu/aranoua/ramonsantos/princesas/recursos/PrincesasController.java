@@ -1,7 +1,6 @@
 package br.edu.aranoua.ramonsantos.princesas.recursos;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,18 +28,6 @@ public class PrincesasController {
 	@GetMapping
 	public ResponseEntity<List<Princesas>> getPrincesas(){
 		return ResponseEntity.ok(princesaServices.obterPrincesas());
-	}
-	@GetMapping("/procura")
-	public ResponseEntity<List<Princesas>>getPrincesasByReino(String reino){
-		return ResponseEntity.ok(princesaServices.obterPrincesas());
-	}
-	
-	@GetMapping("/id")
-	public ResponseEntity<Princesas> getPrincesas(@PathVariable("id") long id){
-		Optional<Princesas> optionalPrincesas = princesaServices.obterPrincesas(id);
-		if(optionalPrincesas.isPresent())
-			return ResponseEntity.ok(princesaServices.get());
-		return ResponseEntity.notFound().build();
 	}
 	
 	@PostMapping
